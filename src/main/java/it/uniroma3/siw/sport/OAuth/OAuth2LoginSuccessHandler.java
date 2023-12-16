@@ -1,7 +1,8 @@
 package it.uniroma3.siw.sport.OAuth;
 
-import it.uniroma3.siw.ecommerce.Model.User;
-import it.uniroma3.siw.ecommerce.Service.UserService;
+
+import it.uniroma3.siw.sport.Model.User;
+import it.uniroma3.siw.sport.Service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
