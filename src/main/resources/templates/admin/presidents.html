@@ -37,13 +37,16 @@
 </nav>
 <div class="container-fluid">
 
-    <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn btn-primary">Add Product</a>
+    <a th:href="@{/admin/presidents/add}" style="margin: 20px 0" class="btn btn-primary">Add President</a>
     <table class="table">
         <thead class="thead-light">
         <tr>
             <th scope="col">SN</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Category</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">CF</th>
+            <th scope="col">Date</th>
+            <th scope="col">Place</th>
             <th scope="col">Preview</th>
             <th scope="col">Delete</th>
             <th scope="col">Update</th>
@@ -51,14 +54,17 @@
         </thead>
         <tbody>
 
-        <tr th:each="product, iStat : ${products}">
+        <tr th:each="president, iStat : ${presidents}">
             <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${product.name}">Larry</td>
-            <td th:text="${product.category.name}">Larry</td>
-            <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.image.id}}"></td>
+            <td th:text="${president.firstname}">Larry</td>
+            <td th:text="${president.lastname}">Larry</td>
+            <td th:text="${president.CF}">Larry</td>
+            <td th:text="${president.date}">Larry</td>
+            <td th:text="${president.place}">Larry</td>
+            <td><img src="" height="100px" width="100px"  th:src="@{${'/presidentImages/' + president.image.id}}"></td>
 
-            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
-            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
+            <td><a href="" th:href="@{/admin/presidents/delete/{id}(id=${president.id})}" class="btn btn-danger">Delete</a></td>
+            <td><a href="" th:href="@{/admin/presidents/update/{id}(id=${president.id})}" class="btn btn-warning">Update</a></td>
 
         </tr>
         </tbody>

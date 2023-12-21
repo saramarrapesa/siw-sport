@@ -15,6 +15,9 @@ public class Team {
     private LocalDate year;
     private String address ;
 
+    @OneToOne
+    private Image image;
+
     @OneToMany
     private List<Player> players;
 
@@ -25,9 +28,6 @@ public class Team {
     public void setImage(Image image) {
         this.image = image;
     }
-
-    @OneToOne
-    private Image image;
 
 
     @OneToOne

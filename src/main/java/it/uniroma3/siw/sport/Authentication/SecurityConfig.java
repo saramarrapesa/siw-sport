@@ -20,6 +20,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import javax.sql.DataSource;
 
 import static it.uniroma3.siw.sport.Model.Credentials.ADMIN_ROLE;
+import static it.uniroma3.siw.sport.Model.Credentials.PRESIDENT_ROLE;
 
 
 @Configuration
@@ -57,11 +58,12 @@ public class SecurityConfig {
         httpSecurity
                 .csrf().and().cors().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET,"/","/index","/shop/**","/login","/register","/css/**","/fonts/**", "/scss/**","/js/**","/images/**","/productImage/**", "favicon.icon","/cart","/checkout","/orderPlaced","/viewProduct","/productImages/{id}","/wishlist","/contact").permitAll()
+                .requestMatchers(HttpMethod.GET,"/","/index","/presidents/**","/login","/register","/players/**","/teams/**", "/scss/**", "/css/**","/js/**","/images/**","/presidentImage/**","/playerImage/**","/teamImage/**", "favicon.icon","/contact").permitAll()
                 .requestMatchers("/oauth2/**").authenticated()
                 .requestMatchers(HttpMethod.POST,"/register","/login","/contact","/newsletter").permitAll()
                 .requestMatchers(HttpMethod.GET,"/admin/**").hasAnyAuthority(ADMIN_ROLE)
                 .requestMatchers(HttpMethod.POST,"/admin/**").hasAnyAuthority(ADMIN_ROLE)
+                .requestMatchers(HttpMethod.GET,"president/**").hasAnyAuthority(PRESIDENT_ROLE)
                 .anyRequest().authenticated()
                 .and().formLogin()
                 .loginPage("/login")

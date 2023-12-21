@@ -11,7 +11,7 @@ public class ImageService {
     @Autowired
     private ImageRepository imageRepository;
 
-    public void salvaImmagine(Image immagine){
+    public void saveImage(Image immagine){
         this.imageRepository.save(immagine);
     }
 

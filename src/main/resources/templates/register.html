@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="/css/login/signup/login.css">
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
+            rel="stylesheet"
+    />
+
+    <title>Register</title>
 </head>
 <body>
+<!-- Section: Design Block -->
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="mb-5">Sign up</h3>
+                        <form th:action="@{/register}" th:object="${user}" method="post">
+                            <div class="form-outline mb-4">
+                                <input type="text" name="firstname" required th:field="${user.firstName}" id="typeFirstnameX-2" class="form-control form-control-lg" />
+                                <label class="form-label" for="typeFirstnameX-2">Firstname</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" name="lastname" required th:field="${user.lastName}" id="typeLastnameX-2" class="form-control form-control-lg" />
+                                <label class="form-label" for="typeLastnameX-2">Lastname</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" name="username" required th:field="${credentials.username}" id="typeUsernameX-2" class="form-control form-control-lg" />
+                                <label class="form-label" for="typeUsernameX-2">Username</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="email" name="email" required th:field="${user.email}" id="typeEmailX-2" class="form-control form-control-lg" />
+                                <label class="form-label" for="typeEmailX-2">Email</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="password" name="password" required th:field="${credentials.password}" id="typePasswordX-2" class="form-control form-control-lg" />
+                                <label class="form-label" for="typePasswordX-2">Password</label>
+                            </div>
+                            <div th:if="${param.error}" class="alert alert-error text-danger">
+                                Invalid username or password.
+                            </div>
 
+
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Sign up</button>
+                            <br>
+                            <div class="signup_link">Already have an account ? <a th:href="@{/login}">Signin</a></div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- Section: Design Block -->
 </body>
 </html>

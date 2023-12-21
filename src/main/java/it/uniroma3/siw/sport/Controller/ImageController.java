@@ -19,8 +19,24 @@ public class ImageController {
 
 
 
-    @GetMapping("/productImages/{id}")
-    public ResponseEntity<byte[]> displayItemImage(@PathVariable("id") Long id) {
+    @GetMapping("/playerImages/{id}")
+    public ResponseEntity<byte[]> displayItemImagePlayer(@PathVariable("id") Long id) {
+        Image img = this.imageRepository.findById(id).get();
+        byte[] image = img.getBytes();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        return new ResponseEntity<>(image, headers, HttpStatus.OK);
+    }
+    @GetMapping("/presidentImages/{id}")
+    public ResponseEntity<byte[]> displayItemImagePresident(@PathVariable("id") Long id) {
+        Image img = this.imageRepository.findById(id).get();
+        byte[] image = img.getBytes();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        return new ResponseEntity<>(image, headers, HttpStatus.OK);
+    }
+    @GetMapping("/teamImages/{id}")
+    public ResponseEntity<byte[]> displayItemImageTeam(@PathVariable("id") Long id) {
         Image img = this.imageRepository.findById(id).get();
         byte[] image = img.getBytes();
         HttpHeaders headers = new HttpHeaders();
