@@ -32,7 +32,7 @@ public class LoginController {
     SessionData sessionData;
 
 
-    @GetMapping("/login")
+ /*   @GetMapping("/login")
     public  String login(Model model){
         return "login";
     }
@@ -43,6 +43,7 @@ public class LoginController {
           model.addAttribute("credentials", new Credentials());
           return "register";
       }
+    */
 
     @PostMapping(value={"/register"})
     public String registerPost(@Valid @ModelAttribute("user") User user,

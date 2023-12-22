@@ -12,7 +12,7 @@ public class Team {
     private Long id;
     private String name;
 
-    private LocalDate year;
+    private int year;
     private String address ;
 
     @OneToOne
@@ -49,11 +49,11 @@ public class Team {
         this.name = name;
     }
 
-    public LocalDate getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(LocalDate year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
