@@ -31,20 +31,6 @@ public class LoginController {
     @Autowired
     SessionData sessionData;
 
-
- /*   @GetMapping("/login")
-    public  String login(Model model){
-        return "login";
-    }
-
-      @GetMapping("/register")
-      public String registerGet(Model model){
-          model.addAttribute("user", new User());
-          model.addAttribute("credentials", new Credentials());
-          return "register";
-      }
-    */
-
     @PostMapping(value={"/register"})
     public String registerPost(@Valid @ModelAttribute("user") User user,
                                BindingResult userBindingResult, @Valid
@@ -61,7 +47,7 @@ public class LoginController {
             model.addAttribute("user", user);
             return "index";
         }
-        return "register";
+        return "index";
     }
 
 
@@ -73,10 +59,9 @@ public class LoginController {
         if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
             return "admin/adminHome";
         }
-        if (credentials.getRole().equals(Credentials.PRESIDENT_ROLE)) {
-            return "president/presidentHome";
-        }
        // model.addAttribute("newsletter", new Newsletter());
+        model.addAttribute("user", new User());
+        model.addAttribute("credentials", new Credentials());
         return "index";
     }
 

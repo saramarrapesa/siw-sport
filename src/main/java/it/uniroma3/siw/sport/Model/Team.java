@@ -21,6 +21,9 @@ public class Team {
     @OneToMany
     private List<Player> players;
 
+    @OneToOne
+    private President president;
+
     public Image getImage() {
         return image;
     }
@@ -29,9 +32,6 @@ public class Team {
         this.image = image;
     }
 
-
-    @OneToOne
-    private President president;
 
     public void setId(Long id) {
         this.id = id;

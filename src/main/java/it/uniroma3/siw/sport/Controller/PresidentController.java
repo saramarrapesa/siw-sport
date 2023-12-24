@@ -1,5 +1,6 @@
 package it.uniroma3.siw.sport.Controller;
 
+import it.uniroma3.siw.sport.Model.Player;
 import it.uniroma3.siw.sport.Model.Team;
 import it.uniroma3.siw.sport.Service.PlayerService;
 import it.uniroma3.siw.sport.Service.PresidentService;
@@ -7,8 +8,10 @@ import it.uniroma3.siw.sport.Service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 public class PresidentController {
@@ -21,8 +24,9 @@ public class PresidentController {
     @Autowired
     TeamService teamService;
 
-    @GetMapping("/president")
-    public String presidentHome(){
+    /*@GetMapping("/president")
+    public String presidentHome(Model model){
+
         return "president/presidentHome";
     }
 
@@ -55,5 +59,11 @@ public class PresidentController {
         model.addAttribute("team", teamService.findTeamById(team_id));
         model.addAttribute("players", this.playerService.findAllPlayers());
         return "redirect:/president/playersInTeam/{teamId}";
+    }
+*/
+   @PostMapping("/president/addPlayer/{teamId}")
+    public String postPlayerForTeam(@ModelAttribute("player")Player player, @RequestParam("playerImage") MultipartFile file, Model model, @PathVariable("teamId") Long teamId) throws IOException {
+        model.addAttribute("player", playerService.createPlayer(player,file));
+        return "redirect:/playersOfTeam";
     }
 }

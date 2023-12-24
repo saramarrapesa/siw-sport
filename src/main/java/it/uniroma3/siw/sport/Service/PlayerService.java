@@ -76,4 +76,13 @@ public class PlayerService {
         return addPlayers;
     }
 
+    @Transactional
+    public List<Player> findPlayersInTeam(Long team_id){
+        List<Player> addPlayers= new ArrayList<>();
+        for(Player p : playerRepository.findPlayersInTeam(team_id)) {
+            addPlayers.add(p);
+        }
+        return addPlayers;
+    }
+
 }

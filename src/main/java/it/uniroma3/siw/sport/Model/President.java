@@ -15,6 +15,9 @@ public class President {
     private LocalDate date;
     private String place ;
 
+    @OneToOne
+    private Team team;
+
     public Image getImage() {
         return image;
     }
@@ -72,6 +75,13 @@ public class President {
 
     public void setPlace(String place) {
         this.place = place;
+    }
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
 }

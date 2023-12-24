@@ -47,6 +47,7 @@
             <th scope="col">CF</th>
             <th scope="col">Date</th>
             <th scope="col">Place</th>
+            <th scope="col">Team</th>
             <th scope="col">Preview</th>
             <th scope="col">Delete</th>
             <th scope="col">Update</th>
@@ -61,6 +62,7 @@
             <td th:text="${president.CF}">Larry</td>
             <td th:text="${president.date}">Larry</td>
             <td th:text="${president.place}">Larry</td>
+            <td th:text="${president.team.name}">Larry</td>
             <td><img src="" height="100px" width="100px"  th:src="@{${'/presidentImages/' + president.image.id}}"></td>
 
             <td><a href="" th:href="@{/admin/presidents/delete/{id}(id=${president.id})}" class="btn btn-danger">Delete</a></td>

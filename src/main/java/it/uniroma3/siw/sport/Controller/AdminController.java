@@ -73,8 +73,8 @@ public class AdminController {
         player.setStartTex(existingPlayer.getStartTex());
         player.setEndTex(existingPlayer.getEndTex());
         player.setPlace(existingPlayer.getPlace());
-        player.setTeam(existingPlayer.getTeam());
         model.addAttribute("player", player);
+        model.addAttribute("roles", Role.values());
         return "admin/playersAdd";
     }
 
@@ -91,6 +91,7 @@ public class AdminController {
     @GetMapping("/admin/presidents/add")
     public String getPresidentsAdd(Model model){
         model.addAttribute("president", new President());
+        model.addAttribute("teams", teamService.findAllTeams());
         return "admin/presidentsAdd";
     }
 
@@ -117,7 +118,9 @@ public class AdminController {
         president.setImage(existingPresident.getImage());
         president.setPlace(existingPresident.getPlace());
         president.setDate(existingPresident.getDate());
+        president.setTeam(existingPresident.getTeam());
         model.addAttribute("president", president);
+        model.addAttribute("teams", teamService.findAllTeams());
         return "admin/presidentsAdd";
     }
 

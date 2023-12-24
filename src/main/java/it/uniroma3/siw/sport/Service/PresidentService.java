@@ -2,8 +2,10 @@ package it.uniroma3.siw.sport.Service;
 
 import it.uniroma3.siw.sport.Model.Image;
 import it.uniroma3.siw.sport.Model.President;
+import it.uniroma3.siw.sport.Model.Team;
 import it.uniroma3.siw.sport.Repository.ImageRepository;
 import it.uniroma3.siw.sport.Repository.PresidentRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,7 +30,16 @@ public class PresidentService {
         return presidentRepository.save(president);
 
     }
-
     public void deletePresidentById(Long id){  presidentRepository.deleteById(id);}
+
+    @Transactional
+    public boolean isPresidentOfTeam(Team team, String firstname, String lastname){
+        if(team != null){
+            if(team.getPresident().getFirstname().equals(firstname)&& team.getPresident().getLastname().equals(lastname)){
+                return true ;
+            }
+        }
+        return false;
+    }
 
 }

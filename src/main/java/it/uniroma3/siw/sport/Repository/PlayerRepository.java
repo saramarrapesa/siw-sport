@@ -19,4 +19,13 @@ public interface PlayerRepository extends CrudRepository<Player,Long> {
     +"from team_players "
     +"where team_players.team_id = team_id) ", nativeQuery = true)
     Iterable<Player> findPlayersNotInTeam(@Param("teamId") Long team_id);
+
+    @Query(value = "select * "
+            +"from player p "
+            +"where p.id in "
+            +"(select players_id "
+            +"from team_players "
+            +"where team_players.team_id = team_id) ", nativeQuery = true)
+    Iterable<Player> findPlayersInTeam(@Param("teamId") Long team_id);
+
 }

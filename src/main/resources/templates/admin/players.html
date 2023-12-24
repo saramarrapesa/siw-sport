@@ -46,12 +46,9 @@
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
             <th scope="col">Preview</th>
-            <th scope="col">Team</th>
             <th scope="col">Date</th>
             <th scope="col">Place</th>
             <th scope="col">Role</th>
-            <th scope="col">Start Tex</th>
-            <th scope="col">End Tex</th>
             <th scope="col">Delete</th>
             <th scope="col">Update</th>
         </tr>
@@ -63,12 +60,9 @@
             <td th:text="${player.firstname}">Larry</td>
             <td th:text="${player.lastname}">Larry</td>
             <td><img src="" height="100px" width="100px"  th:src="@{${'/playerImages/' + player.image.id}}"></td>
-            <td th:text="${player.team.name}">Larry</td>
             <td th:text="${player.date}"></td>
             <td th:text="${player.place}">Larry</td>
             <td th:text="${player.role}">Larry</td>
-            <td th:text="${player.startTex}">Larry</td>
-            <td th:text="${player.endTex}">Larry</td>
             <td><a href="" th:href="@{/admin/players/delete/{id}(id=${player.id})}" class="btn btn-danger">Delete</a></td>
             <td><a href="" th:href="@{/admin/players/update/{id}(id=${player.id})}" class="btn btn-warning">Update</a></td>
         </tr>

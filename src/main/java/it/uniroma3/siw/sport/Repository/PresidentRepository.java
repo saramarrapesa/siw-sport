@@ -8,4 +8,5 @@ import java.util.List;
 public interface PresidentRepository extends CrudRepository<President,Long> {
     President findPresidentById(Long id);
     List<President> findAll();
+
 }
