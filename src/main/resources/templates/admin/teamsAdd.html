@@ -43,7 +43,7 @@
 <!--End of Navbar-->
 
 <div class="container">
-    <h3>Add a new President</h3>
+    <h3>Add a new Team</h3>
     <form th:action="@{/admin/teams/add}" method="post" th:object="${team}" enctype="multipart/form-data">
         <div class="row">
             <div class="col-sm-5">
@@ -65,6 +65,15 @@
                     <input type="text" class="form-control" required th:field="*{address}" name="address" id="address"
                            placeholder="Place">
                 </div>
+                    <div class="form-group">
+                        <label for="president">Select President</label>
+                        <select class="form-control" th:field="*{president}" id="president" name="president">
+                            <option th:each="president :${presidents}"
+                                    th:value="${president.id}"
+                                    th:text="${president.firstname}+' '+ ${president.lastname}"
+                            >
+                        </select>
+                    </div>
             </div>
             <div class="col-sm-5">
                 <p>Team Image</p>

@@ -1,18 +1,23 @@
 package it.uniroma3.siw.sport.Service;
 
+import it.uniroma3.siw.sport.Controller.GlobalController;
 import it.uniroma3.siw.sport.Model.Image;
 import it.uniroma3.siw.sport.Model.Player;
+import it.uniroma3.siw.sport.Model.President;
 import it.uniroma3.siw.sport.Model.Team;
 import it.uniroma3.siw.sport.Repository.ImageRepository;
 import it.uniroma3.siw.sport.Repository.PlayerRepository;
+import it.uniroma3.siw.sport.Repository.PresidentRepository;
 import it.uniroma3.siw.sport.Repository.TeamRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,6 +28,10 @@ public class TeamService {
     ImageRepository imageRepository;
     @Autowired
     PlayerRepository playerRepository;
+    @Autowired
+    GlobalController globalController;
+    @Autowired
+    PresidentRepository presidentRepository;
 
     public List<Team> findAllTeams(){ return teamRepository.findAll();}
     public Team findTeamById(Long id){ return  teamRepository.findTeamById(id);}
@@ -42,7 +51,7 @@ public class TeamService {
      * Solo il presidente della federazione può compiere queste operazioni
      * */
 
-    @Transactional
+   /* @Transactional
     public Team addPlayerToTeam(Long player_id, Long team_id){
         Team team = teamRepository.findTeamById(team_id);
         Player player = playerRepository.findPlayerById(player_id);
@@ -64,5 +73,7 @@ public class TeamService {
             team.setPlayers(players);
         }
         return teamRepository.save(team);
-    }
+    }*/
+
+
 }

@@ -27,6 +27,10 @@ public class PlayerService {
 
     public List<Player> findAllPlayers(){ return playerRepository.findAll();}
 
+    public Player savePlayer(Player player){
+        return playerRepository.save(player);
+
+    }
 
     public Player createPlayer(Player player, MultipartFile multipartFile) throws IOException {
         Image playerImage= new Image(multipartFile.getBytes());

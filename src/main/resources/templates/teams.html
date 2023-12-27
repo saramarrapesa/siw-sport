@@ -122,10 +122,10 @@
                   </figure>
                   <div class="ritekhela-team-view1-text">
                     <h2 th:text="${team.name}"><a th:href="@{/teams/players/{id}(id=${team.id})}">Jecy Deoko</a></h2>
-                    <h4 th:text="${team.president}"></h4>
+                    <span th:text="${team.president.firstname} + ' ' + ${team.president.lastname}"></span>
                     <span th:text="${team.year}">Forword</span>
                     <p th:text="${team.address}">Lorem ipsum dolor sit met, con etur adipiscing elit. Ut c males ante.</p>
-                    <a th:href="@{/teams/players/{id}(id=${team.id})}" class="ritekhela-team-view1-btn">Read More <i class="fa fa-angle-right"></i></a>
+                    <a th:href="@{/teams/playersOfTeam/{id}(id=${team.id})}" class="ritekhela-team-view1-btn">Read More <i class="fa fa-angle-right"></i></a>
                   </div>
                 </li>
               </ul>

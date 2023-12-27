@@ -1,13 +1,12 @@
 package it.uniroma3.siw.sport.Service;
 
-import it.uniroma3.siw.sport.Model.Image;
-import it.uniroma3.siw.sport.Model.President;
-import it.uniroma3.siw.sport.Model.Team;
+import it.uniroma3.siw.sport.Model.*;
 import it.uniroma3.siw.sport.Repository.ImageRepository;
 import it.uniroma3.siw.sport.Repository.PresidentRepository;
-import jakarta.transaction.Transactional;
+import it.uniroma3.siw.sport.Repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -19,6 +18,8 @@ public class PresidentService {
     PresidentRepository presidentRepository;
     @Autowired
     ImageRepository imageRepository;
+    @Autowired
+    TeamRepository teamRepository;
 
     public List<President> findAllPresidents(){ return presidentRepository.findAll();}
     public President findPresidentById(Long id){ return  presidentRepository.findPresidentById(id);}
@@ -32,14 +33,30 @@ public class PresidentService {
     }
     public void deletePresidentById(Long id){  presidentRepository.deleteById(id);}
 
-    @Transactional
-    public boolean isPresidentOfTeam(Team team, String firstname, String lastname){
-        if(team != null){
-            if(team.getPresident().getFirstname().equals(firstname)&& team.getPresident().getLastname().equals(lastname)){
-                return true ;
-            }
-        }
-        return false;
+    public boolean isCurrentUserPresidentOfTeam(Team team , String username) {
+
+        // Verifica se l'utente autenticato è il presidente della squadra
+        return team != null && team.getPresident() != null && team.getPresident().getUsername().equals(username);
     }
+
+    /*public void function(Model model , Team team , User user){
+        model.addAttribute("team", team);
+        model.addAttribute("president", team.getPresident());
+        if(user!= null && this.isPresident(team.getPresident(), user.getUsername())){
+            model.addAttribute("isPresidentOfTeam", true);
+            model.addAttribute("player", new Player());
+            model.addAttribute("players", team.getPlayers());
+            model.addAttribute("hasPlayers",!team.getPlayers().isEmpty());
+        }
+        else {
+            model.addAttribute("isPresidentOfTeam",false);
+        }
+    }
+*/
+
+
+
+
+
 
 }

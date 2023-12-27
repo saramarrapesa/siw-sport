@@ -58,12 +58,11 @@ public class SecurityConfig {
         httpSecurity
                 .csrf().and().cors().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET,"/","/index","/presidents/**","/login","/register","/players/**","/teams/**", "/scss/**","/extra-images/**", "/css/**","/script/**","/images/**","/presidentImages/{id}","/playerImages/{id}","/teamImages/{id}", "favicon.icon","/contact").permitAll()
+                .requestMatchers(HttpMethod.GET,"/","/index","/presidents/**","/president/**","/login","/register","/players/**","/teams/**", "/scss/**","/extra-images/**", "/css/**","/script/**","/images/**","/presidentImages/{id}","/playerImages/{id}","/teamImages/{id}", "favicon.icon","/contact").permitAll()
                 .requestMatchers("/oauth2/**").authenticated()
                 .requestMatchers(HttpMethod.POST,"/register","/login","/contact","/newsletter").permitAll()
                 .requestMatchers(HttpMethod.GET,"/admin/**").hasAnyAuthority(ADMIN_ROLE)
                 .requestMatchers(HttpMethod.POST,"/admin/**").hasAnyAuthority(ADMIN_ROLE)
-                .requestMatchers(HttpMethod.GET,"/president/**").hasAnyAuthority(PRESIDENT_ROLE)
                 .requestMatchers(HttpMethod.POST,"/president/**").hasAnyAuthority(PRESIDENT_ROLE)
                 .anyRequest().authenticated()
                 .and().formLogin()

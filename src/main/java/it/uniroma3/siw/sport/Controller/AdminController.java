@@ -137,12 +137,14 @@ public class AdminController {
     @GetMapping("/admin/teams/add")
     public String getTeamsAdd(Model model){
         model.addAttribute("team", new Team());
+        model.addAttribute("presidents",presidentService.findAllPresidents());
         return "admin/teamsAdd";
     }
 
     @PostMapping("/admin/teams/add")
     public String postTeamsAdd(@ModelAttribute("team") Team team, @RequestParam("teamImage") MultipartFile file, Model model) throws IOException {
         model.addAttribute("team", teamService.createTeam(team,file));
+
         return "redirect:/admin/teams";
     }
 
@@ -164,6 +166,8 @@ public class AdminController {
         team.setPresident(existingTeam.getPresident());
         team.setYear(existingTeam.getYear());
         model.addAttribute("team", team);
+        model.addAttribute("presidents",presidentService.findAllPresidents());
+
         return "admin/teamsAdd";
     }
 

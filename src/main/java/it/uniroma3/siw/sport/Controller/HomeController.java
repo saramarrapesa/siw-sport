@@ -7,8 +7,10 @@ import it.uniroma3.siw.sport.Service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 public class HomeController {
@@ -37,7 +39,7 @@ public class HomeController {
         return "teams";
     }
 
-    @GetMapping("/teams/players/{id}")
+    @GetMapping("/teams/playersOfTeam/{id}")
     public String viewPlayers(Model model , @PathVariable Long id){
         model.addAttribute("team", teamService.findTeamById(id));
         model.addAttribute("hasPlayers", !teamService.findTeamById(id).getPlayers().isEmpty());
@@ -45,12 +47,27 @@ public class HomeController {
         model.addAttribute("player", new Player());
         model.addAttribute("roles", Role.values());
         model.addAttribute("credentials", new Credentials());
-        if(this.globalController.getUser()!=null && this.globalController.getUser().getFirstName()!=null && this.globalController.getUser().getLastName()!=null && this.presidentService.isPresidentOfTeam(teamService.findTeamById(id),globalController.getUser().getFirstName(),globalController.getUser().getLastName()))
+        if(this.globalController.getUser()!=null && this.globalController.getUser().getUsername()!=null && presidentService.isCurrentUserPresidentOfTeam(teamService.findTeamById(id),globalController.getUser().getUsername()))
             model.addAttribute("isPresidentOfTeam",true);
         else
             model.addAttribute("isPresidentOfTeam",false);
         return "playersOfTeam";
     }
+
+   /* @PostMapping("/president/addPlayer/{teamId}")
+    public String postPlayerForTeam(@ModelAttribute("player")Player player, @RequestParam("playerImage") MultipartFile file, Model model, @PathVariable("teamId") Long teamId) throws IOException {
+        Team team = teamService.findTeamById(teamId);
+        if(teamService.isCurrentUserPresidentOfTeam(teamId)){
+            model.addAttribute("player", playerService.createPlayer(player,file));
+            model.addAttribute("team", team);
+            model.addAttribute("hasPlayers", !teamService.findTeamById(teamId).getPlayers().isEmpty());
+            model.addAttribute("user", new User());
+            model.addAttribute("roles", Role.values());
+            model.addAttribute("credentials", new Credentials());
+        return "redirect:/teams/playersOfTeam/{id}";
+    }
+        return "index";
+    }*/
 
     @GetMapping("/players/player/{id}")
     public String getPlayer(Model model , @PathVariable Long id){

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
-    <title>Document</title>
+    <title>Admin President</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
@@ -44,6 +44,7 @@
             <th scope="col">SN</th>
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
+            <th scope="col">Username</th>
             <th scope="col">CF</th>
             <th scope="col">Date</th>
             <th scope="col">Place</th>
@@ -59,6 +60,7 @@
             <th scope="row" th:text="${iStat.index + 1}">1</th>
             <td th:text="${president.firstname}">Larry</td>
             <td th:text="${president.lastname}">Larry</td>
+            <td th:text="${president.username}">Larry</td>
             <td th:text="${president.CF}">Larry</td>
             <td th:text="${president.date}">Larry</td>
             <td th:text="${president.place}">Larry</td>

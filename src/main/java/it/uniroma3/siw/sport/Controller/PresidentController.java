@@ -1,6 +1,7 @@
 package it.uniroma3.siw.sport.Controller;
 
 import it.uniroma3.siw.sport.Model.Player;
+import it.uniroma3.siw.sport.Model.President;
 import it.uniroma3.siw.sport.Model.Team;
 import it.uniroma3.siw.sport.Service.PlayerService;
 import it.uniroma3.siw.sport.Service.PresidentService;
@@ -23,6 +24,8 @@ public class PresidentController {
     PresidentService presidentService;
     @Autowired
     TeamService teamService;
+    @Autowired
+    GlobalController globalController;
 
     /*@GetMapping("/president")
     public String presidentHome(Model model){
@@ -44,6 +47,7 @@ public class PresidentController {
             return "president/playersInTeam";
     }
 
+
     @GetMapping("/president/addPlayer/{teamId}/{playerId}")
     public String addPlayersInTeam(@PathVariable("teamId")Long team_id, @PathVariable("playerId") Long player_id, Model model){
         playerService.addPlayerToTeam(player_id, team_id);
@@ -60,10 +64,7 @@ public class PresidentController {
         model.addAttribute("players", this.playerService.findAllPlayers());
         return "redirect:/president/playersInTeam/{teamId}";
     }
+
 */
-   @PostMapping("/president/addPlayer/{teamId}")
-    public String postPlayerForTeam(@ModelAttribute("player")Player player, @RequestParam("playerImage") MultipartFile file, Model model, @PathVariable("teamId") Long teamId) throws IOException {
-        model.addAttribute("player", playerService.createPlayer(player,file));
-        return "redirect:/playersOfTeam";
-    }
+
 }

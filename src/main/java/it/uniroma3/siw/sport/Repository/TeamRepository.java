@@ -1,6 +1,7 @@
 package it.uniroma3.siw.sport.Repository;
 
 import it.uniroma3.siw.sport.Model.Player;
+import it.uniroma3.siw.sport.Model.President;
 import it.uniroma3.siw.sport.Model.Team;
 import org.springframework.data.repository.CrudRepository;
 

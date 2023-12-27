@@ -15,6 +15,9 @@ public class President {
     private LocalDate date;
     private String place ;
 
+
+    private String username;
+
     @OneToOne
     private Team team;
 
@@ -82,6 +85,13 @@ public class President {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 }
