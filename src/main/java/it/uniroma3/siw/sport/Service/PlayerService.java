@@ -32,10 +32,11 @@ public class PlayerService {
 
     }
 
-    public Player createPlayer(Player player, MultipartFile multipartFile) throws IOException {
+    public Player createPlayer(Player player, MultipartFile multipartFile, Long teamId) throws IOException {
         Image playerImage= new Image(multipartFile.getBytes());
         imageRepository.save(playerImage);
         player.setImage(playerImage);
+        player.setTeam(teamRepository.findTeamById(teamId));
         return playerRepository.save(player);
 
     }
@@ -44,49 +45,10 @@ public class PlayerService {
 
     public Player getPlayerById(Long id){ return playerRepository.findPlayerById(id);}
 
-    /*
-    * Metodi per aggiungere , rimuovere e trovare giocatori in una squadra.
-    * Solo il presidente della federazione può compiere queste operazioni
-    * */
 
-    @Transactional
-    public Player addPlayerToTeam(Long player_id, Long team_id){
-        Team team = teamRepository.findTeamById(team_id);
-        Player player = playerRepository.findPlayerById(player_id);
-        List<Player> players = team.getPlayers();
-        player.setTeam(team);
-        players.add(player);
-        team.setPlayers(players);
-        return playerRepository.save(player);
+    public  void deletePlayer (Player player) { playerRepository.delete(player);}
+
+    public List<Player> findByKeyword(String keyword){
+        return playerRepository.findByKeyword(keyword);
     }
-
-    @Transactional
-    public Player removeTeamForPlayer(Long team_id, Long player_id){
-        Team team = teamRepository.findTeamById(team_id);
-        Player player = playerRepository.findPlayerById(player_id);
-        List<Player> players = team.getPlayers();
-        players.remove(player);
-        player.setTeam(null);
-        team.setPlayers(players);
-        return this.playerRepository.save(player);
-    }
-
-    @Transactional
-    public List<Player> findPlayersNotInTeam(Long team_id){
-        List<Player> addPlayers= new ArrayList<>();
-        for(Player p : playerRepository.findPlayersNotInTeam(team_id)) {
-            addPlayers.add(p);
-        }
-        return addPlayers;
-    }
-
-    @Transactional
-    public List<Player> findPlayersInTeam(Long team_id){
-        List<Player> addPlayers= new ArrayList<>();
-        for(Player p : playerRepository.findPlayersInTeam(team_id)) {
-            addPlayers.add(p);
-        }
-        return addPlayers;
-    }
-
 }

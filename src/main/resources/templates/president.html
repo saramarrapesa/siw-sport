@@ -47,7 +47,7 @@
                         <ul class="ritekhela-user-strip">
                             <li><a sec:authorize="isAnonymous()" th:href="@{/login}" data-toggle="modal" data-target="#ritekhelamodalcenter"><i class="fa fa-user-alt"></i> Login</a></li>
                             <li><a sec:authorize="isAnonymous()" th:href="@{/register}" data-toggle="modal" data-target="#ritekhelamodalrg"><i class="fa fa-sign-in-alt"></i> Signup</a></li>
-                            <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}" ><i class="fa fa-sign-in-alt"></i> Signup</a></li>
+                            <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}" ><i class="fa fa-sign-out-alt"></i> Log out</a></li>
                         </ul>
                     </aside>
 
@@ -61,7 +61,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="index-2.html" class="ritekhela-logo"><img src="/images/logo.png" alt=""></a>
+                        <a class="ritekhela-logo"><img src="/images/logo2.png" alt=""><h2><strong class="ritekhela-color">Soccer.</strong></h2></a>
                         <div class="ritekhela-right-section">
                             <div class="ritekhela-navigation">
                                     <span class="ritekhela-menu-link">
@@ -75,7 +75,6 @@
                                         <li><a th:href="@{/teams}">Teams</a></li>
                                         <li><a th:href="@{/players}">Players</a></li>
                                         <li><a th:href="@{/presidents}">Presidents</a></li>
-                                        <li><a th:href="@{/contact}">Contact Us</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -158,67 +157,30 @@
             <div class="container">
                 <div class="row">
                     <aside class="widget col-md-4 widget_about_info">
-                        <a href="index-2.html"><img src="images/logo.png" alt=""></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elUt ac malesuada ante.Sed gravida, ur quis tempus sollicitudin, tellus urna</p>
-                        <div class="widget_about_info_social">
-                            <a href="#" class="fab fa-facebook-f"></a>
-                            <a href="#" class="fab fa-twitter"></a>
-                            <a href="#" class="fab fa-dribbble"></a>
-                            <a href="#" class="fab fa-linkedin-in"></a>
-                            <a href="#" class="fab fa-youtube"></a>
-                        </div>
+                        <a class="ritekhela-logo"><img src="/images/logo2.png" alt=""><h2><strong class="ritekhela-color">Soccer.</strong></h2></a>
                         <ul>
-                            <li><i class="fa fa-map-marker-alt"></i> 9907 Salford road, east London Uk 2807</li>
-                            <li><i class="fa fa-phone"></i> (+92) 123 45 678 - 987 65 432</li>
+                            <li><i class="fa fa-map-marker-alt"></i> Via Della Vasca Navale 81 , Rome </li>
+                            <li><i class="fa fa-phone"></i> +(39) 3255659847</li>
                             <li><i class="fa fa-envelope"></i> <a href="#">info@example.com</a></li>
                         </ul>
                     </aside>
-                    <aside class="widget col-md-4 widget_twitter_feeds">
-                        <div class="footer_widget_title"> <h2>Twitter Feeds</h2> </div>
+                    <aside class="widget col-md-7 widget_gallery px-lg-5">
+                        <div class="footer_widget_title"> <h2>What is soccer for us </h2> </div>
                         <ul>
-                            <li>
-                                <i class="fab fa-twitter"></i>
-                                <p>Sed gravida, urna quis tempus sollicitudin, tellus urnasuscipit nisl, id rhoncus ligula elit condimentum <a href="index-2.html" class="ritekhela-color">https://t.co/XHrPAM4ANv</a></p>
-                                <time datetime="2008-02-14 20:00"><i class="fa fa-clock"></i> 2 Hours Ago</time>
-                            </li>
-                            <li>
-                                <i class="fab fa-twitter"></i>
-                                <p>Sed gravida, urna quis tempus sollicitudin, tellus urnasuscipit nisl, id rhoncus ligula elit condimentum <a href="index-2.html" class="ritekhela-color">https://t.co/XHrPAM4ANv</a></p>
-                                <time datetime="2008-02-14 20:00"><i class="fa fa-clock"></i> 2 Hours Ago</time>
-                            </li>
-                        </ul>
-                    </aside>
-                    <aside class="widget col-md-4 widget_gallery">
-                        <div class="footer_widget_title"> <h2>Flicker Photos</h2> </div>
-                        <ul>
-                            <li><a data-fancybox-group="group" href="extra-images/widget-gallery-1.jpg" class="fancybox"><img src="extra-images/widget-gallery-1.jpg" alt=""></a></li>
-                            <li><a data-fancybox-group="group" href="extra-images/widget-gallery-1.jpg" class="fancybox"><img src="extra-images/widget-gallery-2.jpg" alt=""></a></li>
-                            <li><a data-fancybox-group="group" href="extra-images/widget-gallery-1.jpg" class="fancybox"><img src="extra-images/widget-gallery-3.jpg" alt=""></a></li>
-                            <li><a data-fancybox-group="group" href="extra-images/widget-gallery-1.jpg" class="fancybox"><img src="extra-images/widget-gallery-4.jpg" alt=""></a></li>
-                            <li><a data-fancybox-group="group" href="extra-images/widget-gallery-1.jpg" class="fancybox"><img src="extra-images/widget-gallery-5.jpg" alt=""></a></li>
-                            <li><a data-fancybox-group="group" href="extra-images/widget-gallery-1.jpg" class="fancybox"><img src="extra-images/widget-gallery-6.jpg" alt=""></a></li>
-                            <li><a data-fancybox-group="group" href="extra-images/widget-gallery-1.jpg" class="fancybox"><img src="extra-images/widget-gallery-7.jpg" alt=""></a></li>
-                            <li><a data-fancybox-group="group" href="extra-images/widget-gallery-1.jpg" class="fancybox"><img src="extra-images/widget-gallery-8.jpg" alt=""></a></li>
+                            <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-1.jpg" alt=""></a></li>
+                            <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-2.jpg" alt=""></a></li>
+                            <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-3.jpg" alt=""></a></li>
+                            <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-4.jpg" alt=""></a></li>
+                            <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-5.jpg" alt=""></a></li>
+                            <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-6.jpg" alt=""></a></li>
+                            <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-7.jpg" alt=""></a></li>
+                            <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-8.jpg" alt=""></a></li>
                         </ul>
                     </aside>
                 </div>
             </div>
         </div>
         <!--// Footer Widget //-->
-
-        <!--// Footer CopyRight //-->
-        <div class="ritekhela-copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p><a href="https://www.templateshub.net" target="_blank">Templates Hub</a></p>
-                        <a href="#" class="ritekhela-back-top"><i class="fa fa-angle-up"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--// Footer CopyRight //-->
-
     </footer>
     <!--// Footer //-->
 
@@ -238,17 +200,13 @@
                     <input type="text" name="username" required value="Enter User Name" onblur="if(this.value == '') { this.value ='Enter User Name'; }" onfocus="if(this.value =='Enter User Name') { this.value = ''; }">
                     <input type="text" name="password" required value="Type Here Password" onblur="if(this.value == '') { this.value ='Type Here Password'; }" onfocus="if(this.value =='Type Here Password') { this.value = ''; }">
                     <input type="submit" value="Login Now" class="ritekhela-bgcolor">
-                    <a href="#" class="loginmodalbox-forget">Forget Password?</a>
                     <div th:if="${param.error}" class="alert alert-error text-danger">
                         Invalid username or password.
                     </div>
                 </form>
                 <div class="ritekhela-loginbox-social">
                     <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
                         <li class="twitter"><a th:href="@{/oauth2/authorization/google}"><i class="fab fa-google"></i> Google</a></li>
-                        <li class="linkedin"><a href="#"><i class="fab fa-linkedin-in"></i> Linkedin</a></li>
-                        <li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i> Dribbble</a></li>
                     </ul>
                 </div>
             </div>
@@ -266,20 +224,16 @@
                     <i class="fa fa-times"></i>
                 </a>
                 <form th:action="@{/register}" th:object="${user}" method="post" class="loginmodalbox-search">
-                    <input type="text" name="firstname" required th:field="${user.firstName}" value="Enter First Name" onblur="if(this.value == '') { this.value ='Enter First Name'; }" onfocus="if(this.value =='Enter First Name') { this.value = ''; }">
-                    <input type="text" name="lastname" required th:field="${user.lastName}" value="Enter Last Name" onblur="if(this.value == '') { this.value ='Enter Last Name'; }" onfocus="if(this.value =='Enter Last Name') { this.value = ''; }">
-                    <input type="text" name="email" required th:field="${user.email}" value="Enter Email" onblur="if(this.value == '') { this.value ='Enter Email'; }" onfocus="if(this.value =='Enter Email') { this.value = ''; }">
-                    <input type="text" name="username" required th:field="${credentials.username}" value="Enter User Name" onblur="if(this.value == '') { this.value ='Enter User Name'; }" onfocus="if(this.value =='Enter User Name') { this.value = ''; }">
-                    <input type="text" name="password" required th:field="${credentials.password}" value="Type Your Password" onblur="if(this.value == '') { this.value ='Type Your Password'; }" onfocus="if(this.value =='Type Your Password') { this.value = ''; }">
+                    <input type="text" name="firstname" required th:field="${user.firstName}" placeholder="Firstname" value="Enter First Name" onblur="if(this.value == '') { this.value ='Enter First Name'; }" onfocus="if(this.value =='Enter First Name') { this.value = ''; }">
+                    <input type="text" name="lastname" required th:field="${user.lastName}" placeholder="Lastname" value="Enter Last Name" onblur="if(this.value == '') { this.value ='Enter Last Name'; }" onfocus="if(this.value =='Enter Last Name') { this.value = ''; }">
+                    <input type="text" name="email" required th:field="${user.email}" placeholder="Email" value="Enter Email" onblur="if(this.value == '') { this.value ='Enter Email'; }" onfocus="if(this.value =='Enter Email') { this.value = ''; }">
+                    <input type="text" name="username" required placeholder="Username" th:field="${credentials.username}" value="Enter User Name" onblur="if(this.value == '') { this.value ='Enter User Name'; }" onfocus="if(this.value =='Enter User Name') { this.value = ''; }">
+                    <input type="text" name="password" required placeholder="Password" th:field="${credentials.password}" value="Type Your Password" onblur="if(this.value == '') { this.value ='Type Your Password'; }" onfocus="if(this.value =='Type Your Password') { this.value = ''; }">
                     <input type="submit" value="Sign Up" class="ritekhela-bgcolor">
-                    <a href="#" class="loginmodalbox-forget">Forget Password?</a>
                 </form>
                 <div class="ritekhela-loginbox-social">
                     <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
                         <li class="twitter"><a th:href="@{/oauth2/authorization/google}"><i class="fab fa-google"></i> Google</a></li>
-                        <li class="linkedin"><a href="#"><i class="fab fa-linkedin-in"></i> Linkedin</a></li>
-                        <li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i> Dribbble</a></li>
                     </ul>
                 </div>
             </div>
@@ -296,9 +250,8 @@
                 <a href="#" class="close ritekhela-bgcolor-two" data-dismiss="modal" aria-label="Close">
                     <i class="fa fa-times"></i>
                 </a>
-                <form>
-                    <input type="text" value="Search Here Now" onblur="if(this.value == '') { this.value ='Search Here Now'; }" onfocus="if(this.value =='Search Here Now') { this.value = ''; }">
-                    <input type="submit" value="Search Now" class="ritekhela-bgcolor">
+                <form th:action="@{/players}" method="get">
+                    <input type="text" name="keyword" value="Search Here Now" onblur="if(this.value == '') { this.value ='Search Here Now'; }" onfocus="if(this.value =='Search Here Now') { this.value = ''; }">
                 </form>
             </div>
         </div>

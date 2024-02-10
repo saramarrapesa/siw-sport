@@ -19,8 +19,6 @@ import java.io.IOException;
 public class AdminController {
 
     @Autowired
-    private PlayerService playerService;
-    @Autowired
     private PresidentService presidentService;
     @Autowired
     private TeamService teamService;
@@ -34,7 +32,7 @@ public class AdminController {
     * Player Section
     * */
 
-    @GetMapping("/admin/players")
+  /*  @GetMapping("/admin/players")
     public String getPlayers(Model model){
         model.addAttribute("players" , playerService.findAllPlayers());
         return "admin/players";
@@ -77,7 +75,7 @@ public class AdminController {
         model.addAttribute("roles", Role.values());
         return "admin/playersAdd";
     }
-
+*/
     /*
     * President Section
     * */

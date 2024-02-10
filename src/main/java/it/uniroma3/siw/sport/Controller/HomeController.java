@@ -54,23 +54,12 @@ public class HomeController {
         return "playersOfTeam";
     }
 
-   /* @PostMapping("/president/addPlayer/{teamId}")
-    public String postPlayerForTeam(@ModelAttribute("player")Player player, @RequestParam("playerImage") MultipartFile file, Model model, @PathVariable("teamId") Long teamId) throws IOException {
-        Team team = teamService.findTeamById(teamId);
-        if(teamService.isCurrentUserPresidentOfTeam(teamId)){
-            model.addAttribute("player", playerService.createPlayer(player,file));
-            model.addAttribute("team", team);
-            model.addAttribute("hasPlayers", !teamService.findTeamById(teamId).getPlayers().isEmpty());
-            model.addAttribute("user", new User());
-            model.addAttribute("roles", Role.values());
-            model.addAttribute("credentials", new Credentials());
-        return "redirect:/teams/playersOfTeam/{id}";
-    }
-        return "index";
-    }*/
-
     @GetMapping("/players/player/{id}")
     public String getPlayer(Model model , @PathVariable Long id){
+        if(this.globalController.getUser()!=null && this.globalController.getUser().getUsername()!=null && presidentService.isCurrentUserPresidentOfTeam(teamService.findTeamById(id),globalController.getUser().getUsername()))
+            model.addAttribute("isPresidentOfTeam",true);
+        else
+            model.addAttribute("isPresidentOfTeam",false);
         model.addAttribute("player", playerService.getPlayerById(id));
         model.addAttribute("user", new User());
         model.addAttribute("credentials", new Credentials());
@@ -78,10 +67,15 @@ public class HomeController {
     }
 
     @GetMapping("/players")
-    public String getPlayers(Model model){
-        model.addAttribute("players", playerService.findAllPlayers());
+    public String getPlayers(Model model, String keyword){
         model.addAttribute("user", new User());
         model.addAttribute("credentials", new Credentials());
+        if(keyword!= null){
+            model.addAttribute("players", playerService.findByKeyword(keyword));
+        }
+        else {
+            model.addAttribute("players", playerService.findAllPlayers());
+        }
         return "players";
     }
 

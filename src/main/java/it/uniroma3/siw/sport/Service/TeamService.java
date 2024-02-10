@@ -15,9 +15,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,7 +33,7 @@ public class TeamService {
     @Autowired
     GlobalController globalController;
     @Autowired
-    PresidentRepository presidentRepository;
+    PresidentService presidentService;
 
     public List<Team> findAllTeams(){ return teamRepository.findAll();}
     public Team findTeamById(Long id){ return  teamRepository.findTeamById(id);}
@@ -44,36 +46,25 @@ public class TeamService {
 
     }
 
+    public Team saveTeam(Team team){ return teamRepository.save(team);}
+
     public void deleteTeamById(Long id){  teamRepository.deleteById(id);}
 
-    /*
-     * Metodi per aggiungere , rimuovere e trovare giocatori in una squadra.
-     * Solo il presidente della federazione può compiere queste operazioni
-     * */
-
-   /* @Transactional
-    public Team addPlayerToTeam(Long player_id, Long team_id){
-        Team team = teamRepository.findTeamById(team_id);
-        Player player = playerRepository.findPlayerById(player_id);
-        if(player!=null && team!=null){
-            List<Player> players = team.getPlayers();
-            players.add(player);
-            team.setPlayers(players);
-        }
-        return teamRepository.save(team);
+    //metodo di supporto
+    public void function (Model model, Team team ,String username){
+        List<Player> playersOfTeam = new ArrayList<>();
+        if(team.getPlayers()!= null)
+            playersOfTeam.addAll(team.getPlayers());
+        playersOfTeam.remove(null);
+        model.addAttribute("players", playersOfTeam);
+        model.addAttribute("team", team);
+        if(username!=null && presidentService.isCurrentUserPresidentOfTeam(team,username))
+            model.addAttribute("isPresidentOfTeam" , true);
+        else
+            model.addAttribute("isPresidentOfTeam", false);
+        model.addAttribute("player", new Player());
+        model.addAttribute("hasPlayers", !team.getPlayers().isEmpty());
     }
-
-    @Transactional
-    public Team removePlayer (Long player_id, Long team_id){
-        Team team = teamRepository.findTeamById(team_id);
-        Player player = playerRepository.findPlayerById(player_id);
-        if(player!=null && team!=null) {
-            List<Player> players = team.getPlayers();
-            players.remove(player);
-            team.setPlayers(players);
-        }
-        return teamRepository.save(team);
-    }*/
 
 
 }

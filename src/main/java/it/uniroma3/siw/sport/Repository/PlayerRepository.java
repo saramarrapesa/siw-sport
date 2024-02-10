@@ -1,9 +1,12 @@
 package it.uniroma3.siw.sport.Repository;
 
 import it.uniroma3.siw.sport.Model.Player;
+import it.uniroma3.siw.sport.Model.Role;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+
+import java.time.LocalDate;
 import java.util.List;
 
 public interface PlayerRepository extends CrudRepository<Player,Long> {
@@ -12,20 +15,9 @@ public interface PlayerRepository extends CrudRepository<Player,Long> {
     public List<Player> findAll();
     Player findPlayerById(Long id);
 
-    @Query(value = "select * "
-    +"from player p "
-    +"where p.id not in "
-    +"(select players_id "
-    +"from team_players "
-    +"where team_players.team_id = team_id) ", nativeQuery = true)
-    Iterable<Player> findPlayersNotInTeam(@Param("teamId") Long team_id);
+    boolean existsByFirstnameAndLastnameAndDateAndPlaceAndRole(String firstname , String lastname , LocalDate date ,String place,  Role roleEnum);
 
-    @Query(value = "select * "
-            +"from player p "
-            +"where p.id in "
-            +"(select players_id "
-            +"from team_players "
-            +"where team_players.team_id = team_id) ", nativeQuery = true)
-    Iterable<Player> findPlayersInTeam(@Param("teamId") Long team_id);
+    @Query("SELECT p FROM Player p WHERE LOWER(p.firstname) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.lastname) LIKE LOWER(CONCAT('%', :keyword, '%')) ")
+    List<Player> findByKeyword(@Param("keyword") String keyword);
 
 }

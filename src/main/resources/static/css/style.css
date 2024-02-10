@@ -319,6 +319,10 @@ address                         { font-style: italic; }
     float: left;
     margin: 27px 0px 26px 0px;
 }
+.ritekhela-logo h2 {
+    float: right;
+    margin: 7px 10px 26px 10px;
+}
 /* Navigation */
 .ritekhela-right-section {
     float: right; }

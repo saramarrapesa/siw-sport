@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">>
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
   <!-- meta tags -->
   <meta charset="utf-8">
@@ -43,7 +43,7 @@
             <ul class="ritekhela-user-strip">
               <li><a sec:authorize="isAnonymous()" th:href="@{/login}" data-toggle="modal" data-target="#ritekhelamodalcenter"><i class="fa fa-user-alt"></i> Login</a></li>
               <li><a sec:authorize="isAnonymous()" th:href="@{/register}" data-toggle="modal" data-target="#ritekhelamodalrg"><i class="fa fa-sign-in-alt"></i> Signup</a></li>
-              <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}" ><i class="fa fa-sign-in-alt"></i> Log out</a></li>
+              <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}" ><i class="fa fa-sign-out-alt"></i> Log out</a></li>
             </ul>
           </aside>
 
@@ -57,7 +57,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <a class="ritekhela-logo"><img src="/images/logo.png" alt=""></a>
+            <a class="ritekhela-logo"><img src="/images/logo2.png" alt=""><h2><strong class="ritekhela-color">Soccer.</strong></h2></a>
             <div class="ritekhela-right-section">
               <div class="ritekhela-navigation">
                                     <span class="ritekhela-menu-link">
@@ -71,7 +71,6 @@
                     <li><a th:href="@{/teams}">Teams</a></li>
                     <li><a th:href="@{/players}">Players</a></li>
                     <li><a th:href="@{/presidents}">Presidents</a></li>
-                    <li><a th:href="@{/contact}">Contact Us</a></li>
                   </ul>
                 </nav>
               </div>
@@ -98,9 +97,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h1>We Are Developing <strong class="ritekhela-color">The Soccer</strong> Be Our Partner</h1>
+              <h1>Welcome To Our <strong class="ritekhela-color">Soccer Site</strong> And Discover Our Teams</h1>
               <div class="clearfix"></div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac malesuada ante Curabitur lacinia diam tempus tempor consectetur. Sed vitae dignissim purueget aliquam libero.</p>
+              <p>There are differnt teams , players and presidents.</p>
               <div class="clearfix"></div>
             </div>
           </div>
@@ -114,9 +113,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h1>World Cup <strong class="ritekhela-color">rivalries</strong> reprised</h1>
+              <h1>For each <strong class="ritekhela-color">Team</strong> Discover Its Players</h1>
               <div class="clearfix"></div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac malesuada ante Curabitur lacinia diam tempus tempor consectetur. Sed vitae dignissim purueget aliquam libero.</p>
+              <p>Choose your favorite.</p>
               <div class="clearfix"></div>
             </div>
           </div>
@@ -141,38 +140,15 @@
       <div class="container">
         <div class="row">
           <aside class="widget col-md-4 widget_about_info">
-            <a th:href="@{/}"><img src="/images/logo.png" alt=""></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elUt ac malesuada ante.Sed gravida, ur quis tempus sollicitudin, tellus urna</p>
-            <div class="widget_about_info_social">
-              <a href="#" class="fab fa-facebook-f"></a>
-              <a href="#" class="fab fa-twitter"></a>
-              <a href="#" class="fab fa-dribbble"></a>
-              <a href="#" class="fab fa-linkedin-in"></a>
-              <a href="#" class="fab fa-youtube"></a>
-            </div>
+            <a class="ritekhela-logo"><img src="/images/logo2.png" alt=""><h2><strong class="ritekhela-color">Soccer.</strong></h2></a>
             <ul>
-              <li><i class="fa fa-map-marker-alt"></i> 9907 Salford road, east London Uk 2807</li>
-              <li><i class="fa fa-phone"></i> (+92) 123 45 678 - 987 65 432</li>
+              <li><i class="fa fa-map-marker-alt"></i> Via Della Vasca Navale 81 , Rome </li>
+              <li><i class="fa fa-phone"></i> +(39) 3255659847</li>
               <li><i class="fa fa-envelope"></i> <a href="#">info@example.com</a></li>
             </ul>
           </aside>
-          <aside class="widget col-md-4 widget_twitter_feeds">
-            <div class="footer_widget_title"> <h2>Twitter Feeds</h2> </div>
-            <ul>
-              <li>
-                <i class="fab fa-twitter"></i>
-                <p>Sed gravida, urna quis tempus sollicitudin, tellus urnasuscipit nisl, id rhoncus ligula elit condimentum <a href="index-2.html" class="ritekhela-color">https://t.co/XHrPAM4ANv</a></p>
-                <time datetime="2008-02-14 20:00"><i class="fa fa-clock"></i> 2 Hours Ago</time>
-              </li>
-              <li>
-                <i class="fab fa-twitter"></i>
-                <p>Sed gravida, urna quis tempus sollicitudin, tellus urnasuscipit nisl, id rhoncus ligula elit condimentum <a href="index-2.html" class="ritekhela-color">https://t.co/XHrPAM4ANv</a></p>
-                <time datetime="2008-02-14 20:00"><i class="fa fa-clock"></i> 2 Hours Ago</time>
-              </li>
-            </ul>
-          </aside>
-          <aside class="widget col-md-4 widget_gallery">
-            <div class="footer_widget_title"> <h2>Flicker Photos</h2> </div>
+          <aside class="widget col-md-7 widget_gallery px-lg-5">
+            <div class="footer_widget_title"> <h2>What is soccer for us </h2> </div>
             <ul>
               <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-1.jpg" alt=""></a></li>
               <li><a data-fancybox-group="group" href="/extra-images/widget-gallery-1.jpg" class="fancybox"><img src="/extra-images/widget-gallery-2.jpg" alt=""></a></li>
@@ -207,17 +183,13 @@
           <input type="text" name="username" required placeholder="Username">
           <input type="text" name="password" required placeholder="Password" >
           <input type="submit" value="Login Now" class="ritekhela-bgcolor">
-          <a href="#" class="loginmodalbox-forget">Forget Password?</a>
           <div th:if="${param.error}" class="alert alert-error text-danger">
             Invalid username or password.
           </div>
         </form>
         <div class="ritekhela-loginbox-social">
           <ul>
-            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
             <li class="twitter"><a th:href="@{/oauth2/authorization/google}"><i class="fab fa-google"></i> Google</a></li>
-            <li class="linkedin"><a href="#"><i class="fab fa-linkedin-in"></i> Linkedin</a></li>
-            <li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i> Dribbble</a></li>
           </ul>
         </div>
       </div>
@@ -241,14 +213,10 @@
           <input type="text" name="username" required th:field="${credentials.username}" placeholder="Username">
           <input type="text" name="password" required th:field="${credentials.password}" placeholder="Password">
           <input type="submit" value="Sign Up" class="ritekhela-bgcolor">
-          <a href="#" class="loginmodalbox-forget">Forget Password?</a>
         </form>
         <div class="ritekhela-loginbox-social">
           <ul>
-            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
             <li class="twitter"><a th:href="@{/oauth2/authorization/google}"><i class="fab fa-google"></i> Google</a></li>
-            <li class="linkedin"><a href="#"><i class="fab fa-linkedin-in"></i> Linkedin</a></li>
-            <li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i> Dribbble</a></li>
           </ul>
         </div>
       </div>
@@ -265,9 +233,8 @@
         <a href="#" class="close ritekhela-bgcolor-two" data-dismiss="modal" aria-label="Close">
           <i class="fa fa-times"></i>
         </a>
-        <form>
-          <input type="text" value="Search Here Now" onblur="if(this.value == '') { this.value ='Search Here Now'; }" onfocus="if(this.value =='Search Here Now') { this.value = ''; }">
-          <input type="submit" value="Search Now" class="ritekhela-bgcolor">
+        <form th:action="@{/players}" method="get">
+          <input type="text" name="keyword" value="Search Here Now" onblur="if(this.value == '') { this.value ='Search Here Now'; }" onfocus="if(this.value =='Search Here Now') { this.value = ''; }">
         </form>
       </div>
     </div>

@@ -27,7 +27,7 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/templates/admin}" href="#">admin-home</a>
+                    <a class="nav-link" href="#">president</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/logout}" href="#">logout</a>
@@ -40,7 +40,7 @@
 </nav>
 <div class="container">
     <h3>Add a new Player</h3>
-   <form th:action="@{/admin/players/add}" method="post" th:object="${player}" enctype="multipart/form-data">
+   <form th:action="@{/president/addPlayer/{id}(id=${team.id})}" method="post" th:object="${player}" enctype="multipart/form-data">
         <div class="row">
             <div class="col-sm-5">
 
@@ -66,6 +66,16 @@
                     <label for="place">Place </label>
                     <input type="text" class="form-control" required th:field="*{place}" name="place" id="place"
                            placeholder="Place">
+                </div>
+                <div class="form-group">
+                    <label for="startTax">Start Membership </label>
+                    <input type="date" class="form-control" required th:field="*{startTex}" name="startTax" id="startTax"
+                           placeholder="Start Membership">
+                </div>
+                <div class="form-group">
+                    <label for="endTex">End Membership</label>
+                    <input type="date" class="form-control" required th:field="*{endTex}" name="endTex" id="endTex"
+                           placeholder="End Membership">
                 </div>
                 <div class="form-group">
                     <label for="role">Select Role</label>
