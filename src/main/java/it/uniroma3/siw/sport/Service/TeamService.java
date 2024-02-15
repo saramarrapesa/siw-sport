@@ -3,17 +3,12 @@ package it.uniroma3.siw.sport.Service;
 import it.uniroma3.siw.sport.Controller.GlobalController;
 import it.uniroma3.siw.sport.Model.Image;
 import it.uniroma3.siw.sport.Model.Player;
-import it.uniroma3.siw.sport.Model.President;
 import it.uniroma3.siw.sport.Model.Team;
 import it.uniroma3.siw.sport.Repository.ImageRepository;
 import it.uniroma3.siw.sport.Repository.PlayerRepository;
-import it.uniroma3.siw.sport.Repository.PresidentRepository;
 import it.uniroma3.siw.sport.Repository.TeamRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,7 +32,7 @@ public class TeamService {
 
     public List<Team> findAllTeams(){ return teamRepository.findAll();}
     public Team findTeamById(Long id){ return  teamRepository.findTeamById(id);}
-
+    @Transactional
     public Team createTeam(Team team, MultipartFile multipartFile) throws IOException {
         Image teamImage = new Image(multipartFile.getBytes());
         imageRepository.save(teamImage);
@@ -47,7 +42,6 @@ public class TeamService {
     }
 
     public Team saveTeam(Team team){ return teamRepository.save(team);}
-
     public void deleteTeamById(Long id){  teamRepository.deleteById(id);}
 
     //metodo di supporto

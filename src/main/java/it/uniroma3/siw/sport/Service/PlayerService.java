@@ -32,6 +32,7 @@ public class PlayerService {
 
     }
 
+    @Transactional
     public Player createPlayer(Player player, MultipartFile multipartFile, Long teamId) throws IOException {
         Image playerImage= new Image(multipartFile.getBytes());
         imageRepository.save(playerImage);
@@ -40,8 +41,6 @@ public class PlayerService {
         return playerRepository.save(player);
 
     }
-
-    public void deletePlayerById(Long id){  playerRepository.deleteById(id);}
 
     public Player getPlayerById(Long id){ return playerRepository.findPlayerById(id);}
 

@@ -4,6 +4,7 @@ import it.uniroma3.siw.sport.Model.*;
 import it.uniroma3.siw.sport.Repository.ImageRepository;
 import it.uniroma3.siw.sport.Repository.PresidentRepository;
 import it.uniroma3.siw.sport.Repository.TeamRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,10 +20,9 @@ public class PresidentService {
     ImageRepository imageRepository;
     @Autowired
     TeamRepository teamRepository;
-
     public List<President> findAllPresidents(){ return presidentRepository.findAll();}
     public President findPresidentById(Long id){ return  presidentRepository.findPresidentById(id);}
-
+    @Transactional
     public President createPresident(President president, MultipartFile multipartFile) throws IOException {
         Image presidentImage = new Image(multipartFile.getBytes());
         imageRepository.save(presidentImage);
